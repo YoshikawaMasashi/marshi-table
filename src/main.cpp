@@ -2,6 +2,8 @@
 #include <malloc.h>
 #include <stdio.h>
 
+#include "categorical_manager.h"
+
 namespace py = pybind11;
 
 int add(int i, int j) {
@@ -18,4 +20,6 @@ PYBIND11_MODULE(_core, m) {
     )pbdoc");
     m.def("malloc_stats", &malloc_stats);
     m.def("malloc_trim", &malloc_trim);
+
+    InitCategoricalManager(m);
 }
